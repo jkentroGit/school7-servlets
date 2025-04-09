@@ -35,6 +35,7 @@ gr\aueb\cf\schoolapp\dao\CityDAOImpl.class
 gr\aueb\cf\schoolapp\filter\GRFilter.class
 gr\aueb\cf\schoolapp\dto\BaseUserDTO.class
 gr\aueb\cf\schoolapp\dto\UserReadOnlyDTO.class
+gr\aueb\cf\schoolapp\controller\TeacherViewController.class
 gr\aueb\cf\schoolapp\exceptions\UserNotFoundException.class
 gr\aueb\cf\schoolapp\controller\UserRegisterController.class
 gr\aueb\cf\schoolapp\dao\ITeacherDAO.class

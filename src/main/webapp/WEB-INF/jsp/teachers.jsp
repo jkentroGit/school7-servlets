@@ -58,7 +58,7 @@
                    <td>${teacher.id}</td>
                    <td>${teacher.firstname}</td>
                    <td>${teacher.lastname}</td>
-                   <td><a href="${pageContext.request.contextPath}/school-app/teachers/view?id=${teacher.id}"><i class="fa-regular fa-eye p-1"></i></a><a href="${pageContext.request.contextPath}/school-app/teachers/update?id=${teacher.id}"><i class="fa-solid fa-pen-to-square"></i></a><a href="${pageContext.request.contextPath}/school-app/teachers/delete?id=${teacher.id}"
+                   <td><a href="${pageContext.request.contextPath}/school-app/teachers/viewone?id=${teacher.id}"><i class="fa-regular fa-eye p-1"></i></a><a href="${pageContext.request.contextPath}/school-app/teachers/update?id=${teacher.id}"><i class="fa-solid fa-pen-to-square"></i></a><a href="${pageContext.request.contextPath}/school-app/teachers/delete?id=${teacher.id}"
                           onclick="return confirm('Are you sure you want to delete the teacher?')"><i class="fa-solid text-danger fa-trash-can p-1"></i></a>
 
                    </td>
