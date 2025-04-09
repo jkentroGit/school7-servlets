@@ -30,49 +30,49 @@
                   <div class="input-group container mb-3">
                     <div class="input-group-text col-5">Όνομα</div>
                       <input class="form-control col-5" type="text" name="firstname" value="${requestScope.updateDTO.firstname}" placeholder="Όνομα" readonly></input>
-                      <div class="validation-error">${sessionScope.firstnameMessage}</div>
+
                   </div>
                   <div class="input-group container mb-3">
                     <label class="input-group-text col-5">Επώνυμο</label>
                       <input class="form-control col-3" type="text" name="lastname" value="${requestScope.updateDTO.lastname}" placeholder="Επώνυμο" readonly></input>
-                      <p class="validation-error">${sessionScope.lastnameMessage}</p>
+
                    </div>
               <div class="input-group container mb-3">
                 <label class="input-group-text col-5">ΑΦΜ</label>
                   <input class="form-control" type="text" name="vat" value="${requestScope.updateDTO.vat}" placeholder="ΑΦΜ" readonly></input>
-                  <p class="validation-error">${sessionScope.vatMessage}</p>
+
               </div>
               <div class="input-group container mb-3">
                   <label class="input-group-text col-5">Επώνυμο Πατρός</label>
                   <input class="form-control" type="text" name="fathername" value="${requestScope.updateDTO.fatherName}" placeholder="Επώνυμο Πατρός" readonly></input>
-                  <p class="validation-error">${sessionScope.fathernameMessage}</p>
+
               </div>
               <div class="input-group container mb-3">
                 <label class="input-group-text col-5">Αριθμός Τηλεφώνου</label>
                   <input class="form-control" type="text" name="phoneNum" value="${requestScope.updateDTO.phoneNum}" placeholder="Αριθμός Τηλεφώνου" readonly></input>
-                  <p class="validation-error">${sessionScope.phoneNumMessage}</p>
+
                 </div>
 
                 <div class="input-group container mb-3">
                   <label class="input-group-text col-5">E-mail</label>
                   <input class="form-control" type="text" name="email" value="${requestScope.updateDTO.email}" placeholder="E-mail" readonly></input>
-                  <p class="validation-error">${sessionScope.emailMessage}</p>
+
                 </div>
               <div class="input-group container mb-3">
                 <label class="input-group-text col-5">Οδός</label>
                   <input class="form-control" type="text" name="street" value="${requestScope.updateDTO.street}" placeholder="Οδός" readonly></input>
-                  <p class="validation-error">${sessionScope.streetMessage}</p>
+
                 </div>
 
                 <div class="input-group container mb-3">
                   <label class="input-group-text col-5">Αριθμός</label>
                   <input class="form-control" type="text" name="streetNum" value="${requestScope.updateDTO.streetNum}" placeholder="Αριθμός" readonly></input>
-                  <p class="validation-error">${sessionScope.streetNumMessage}</p>
+
               </div>
               <div class="input-group container mb-3">
                 <label class="input-group-text col-5">ΤΚ</label>
                   <input class="form-control" type="text" name="zipcode" value="${requestScope.updateDTO.zipCode}" placeholder="TK" readonly></input>
-                  <p class="validation-error">${sessionScope.zipcodeMessage}</p>
+
                 </div>
 
 
@@ -88,7 +88,7 @@
                 <div class="input-group container mb-3">
                   <label class="input-group-text col-5">Πόλη</label>
                   <input class="form-control" type="text" name="City" value="${selectedCityName}" placeholder= "${selectedCityName}" readonly></input>
-                   <p class="validation-error">${sessionScope.zipcodeMessage}</p>
+
                  </div>
 
 

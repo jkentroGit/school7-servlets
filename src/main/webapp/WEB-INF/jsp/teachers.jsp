@@ -25,7 +25,7 @@
   <div>
     <c:if test="${sessionScope.role == 'ADMIN'}">
        <div class="mt-5 mb-5">
-           <a class="btn btn-primary" href=${pageContext.request.contextPath}/school-app/teachers/insert">Εισαγωγή Καθηγητή</a>
+           <a class="btn btn-primary" href= "${pageContext.request.contextPath}/school-app/teachers/insert" >Εισαγωγή Καθηγητή</a>
        </div>
     </c:if>
 
