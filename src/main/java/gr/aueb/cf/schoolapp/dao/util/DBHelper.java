@@ -21,7 +21,7 @@ public class DBHelper {
     public static void eraseData() throws SQLException {
         String sqlFKOff = "SET @@foreign_key_checks = 0";
         String sqlFKOn = "SET @@foreign_key_checks = 1";
-        String sqlSelect = "SELECT TABLE_NAME FROM information_schema.tables WHERE TABLE_SCHEMA = 'schooldb7staging'";
+        String sqlSelect = "SELECT TABLE_NAME FROM information_schema.tables WHERE TABLE_SCHEMA = 'school7dbstaging'";
         ResultSet rs = null;
 
         try (Connection connection = DBUtil.getConnection();
