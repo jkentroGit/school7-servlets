@@ -5,9 +5,14 @@
 
 .footer {
     background-color: var(--light-color);
-    border-top: 5px solid var(--dark-blue);
+    border-top: 2px solid var(--dark-blue);
     padding-top: 25px;
     padding-left: 10rem;
     text-align: left;
+    min-height: 15vh;
+}
+
+.footer2 {
+    background-color: #e8e8f2; border-top: 2px solid var(--dark-blue); padding-top: 25px; padding-left: 10rem; text-align: left;
     min-height: 15vh;
 }

@@ -21,17 +21,18 @@
 
 <%@ include file="header.jsp"%>
 
-<div class="card d-flex align-content-center text-center w-50 mh-100 mx-auto justify-center">
+<div class="d-flex justify-content-center align-items-center" style="height: 70vh">
+<div class="card text-center w-50">
   <div>
     <c:if test="${sessionScope.role == 'ADMIN'}">
-       <div class="mt-5 mb-5">
+       <div class="mt-5">
            <a class="btn btn-primary" href= "${pageContext.request.contextPath}/school-app/teachers/insert" >Εισαγωγή Καθηγητή</a>
        </div>
     </c:if>
 
   </div>
 
-<div class="input-group container w-50">
+<div class="input-group container w-50 mt-5">
  <form class="d-flex column" id="filterForm" method="GET" action="${pageContext.request.contextPath}/school-app/teachers/view">
       <input type="text" class="form-control column" name="firstname" placeholder="Όνομα" aria-label="Recipient's username" aria-describedby="basic-addon2">
       <input type="text" class="form-control" name="lastname" placeholder="Επώνυμο" aria-label="Recipient's username" aria-describedby="basic-addon2">
@@ -58,9 +59,13 @@
                    <td>${teacher.id}</td>
                    <td>${teacher.firstname}</td>
                    <td>${teacher.lastname}</td>
-                   <td><a href="${pageContext.request.contextPath}/school-app/teachers/viewone?id=${teacher.id}"><i class="fa-regular fa-eye p-1"></i></a><a href="${pageContext.request.contextPath}/school-app/teachers/update?id=${teacher.id}"><i class="fa-solid fa-pen-to-square"></i></a><a href="${pageContext.request.contextPath}/school-app/teachers/delete?id=${teacher.id}"
-                          onclick="return confirm('Are you sure you want to delete the teacher?')"><i class="fa-solid text-danger fa-trash-can p-1"></i></a>
+                   <td>
+                   <a href="${pageContext.request.contextPath}/school-app/teachers/viewone?id=${teacher.id}"><i class="fa-regular fa-eye p-1"></i></a>
 
+                   <c:if test="${sessionScope.role == 'ADMIN'}">
+                   <a href="${pageContext.request.contextPath}/school-app/teachers/update?id=${teacher.id}"><i class="fa-solid fa-pen-to-square"></i></a>
+                   <a href="${pageContext.request.contextPath}/school-app/teachers/delete?id=${teacher.id}" onclick="return confirm('Are you sure you want to delete the teacher?')"><i class="fa-solid text-danger fa-trash-can p-1"></i></a>
+                   </c:if>
                    </td>
                </tr>
            </c:forEach>
@@ -84,6 +89,7 @@
        </c:if>
    </div>
    </div>
+   </div>
 </body>
 
 <%@ include file="footer.jsp"%>
@@ -91,5 +97,4 @@
 <script src="${pageContext.request.contextPath}/js/teachers.js">
 
 </script>
-</body>
 </html>

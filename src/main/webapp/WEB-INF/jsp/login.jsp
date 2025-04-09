@@ -17,7 +17,8 @@
 <body>
 	<%@ include file="header.jsp"%>
 
-       <div class="card my-auto mx-auto text-center h-100 w-25 align-items-center justify-content-center vh-50">
+	<div class="d-flex justify-content-center align-items-center" style="height: 75vh">
+       <div class="card w-25 text-center">
             <h2 class="pt-5 mb-5 text-grey">Login</h2>
             <div style="color: red;">${error} </div>
              <div>
@@ -37,13 +38,14 @@
                          <span></span>
                      </div>
                      <button class="btn btn-success rounded mb-5" type="submit">Sign In</button>
-                     <div class="mb-5">
+                     <div class="mb-2">
                        <a href="#">Lost your password?</a>
                      </div>
            </form>
-          <div>
+          <div class="mb-5">
              <p> Don't have an account? <a href="${pageContext.request.contextPath}/register">Sign up here!</a></p>
          </div>
+          </div>
           </div>
     <%@include file="footer.jsp"%>
 </body>

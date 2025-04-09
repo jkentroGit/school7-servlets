@@ -18,7 +18,7 @@
 
 <%@ include file="header.jsp"%>
 
-
+<div class="d-flex justify-content-center align-items-center" style="height: 70vh">
 <div class="container card p-0 mt-5">
 <span class="card-header text-xl-center text-lg"> Eπεξεργασία καθηγητή </span>
 
@@ -108,6 +108,7 @@
   </div>
 
 
+  </div>
   </div>
   </div>
   </body>

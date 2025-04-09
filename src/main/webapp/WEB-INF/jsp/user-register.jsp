@@ -14,9 +14,9 @@
 <body>
 <%@ include file="header.jsp"%>
 
-<div class="main-content">
+<div class="d-flex justify-content-center align-items-center" style="height: 70vh">
 
-    <div class="card d-flex align-content-center text-center w-25  mh-100 mx-auto vh-50">
+    <div class="card text-center w-25">
                <form class="w-20 text-center align-content-center" method="POST" action="${pageContext.request.contextPath}/register">
                 <div class="mb-3 pt-5">
                   <p class="mb-1"> Username:</p>
