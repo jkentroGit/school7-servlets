@@ -18,63 +18,63 @@
 <%@ include file="header.jsp"%>
 
 <div class="d-flex justify-content-center align-items-center" style="height: 70vh">
-<div class="card">
-<span class="card-header text-xl-center text-lg"> Eπεξεργασία καθηγητή </span>
+<div class="card" style="width: 500px">
+<span class="card-header text-xl-center text-lg"> Εισαγωγή καθηγητή </span>
 
   <div class="card-body p-0 col-0 text-center mt-5">
-    <div class=" mb-5  mx-auto">
-      <form class="w-10 mx-auto d-flex flex-column" method="POST" action="${pageContext.request.contextPath}/school-app/teachers/insert">
+    <div class=" mb-5 mx-auto">
+      <form class="mx-auto d-flex flex-column" method="POST" action="${pageContext.request.contextPath}/school-app/teachers/insert">
 
                   <div class="input-group container mb-3">
-                    <div class="input-group-text col-3">Όνομα</div>
-                      <input class="form-control col-3" type="text" name="firstname" value="${requestScope.insertDTO.firstname}" placeholder="Όνομα"></input>
+                    <div class="input-group-text col-5">Όνομα</div>
+                      <input class="form-control" type="text" name="firstname" value="${requestScope.insertDTO.firstname}" placeholder="Όνομα"></input>
                       <div class="validation-error">${sessionScope.firstnameMessage}</div>
                   </div>
                   <div class="input-group container mb-3">
-                    <label class="input-group-text col-3">Επώνυμο</label>
-                      <input class="form-control col-3" type="text" name="lastname" value="${requestScope.insertDTO.lastname}" placeholder="Επώνυμο"></input>
+                    <label class="input-group-text col-5">Επώνυμο</label>
+                      <input class="form-control" type="text" name="lastname" value="${requestScope.insertDTO.lastname}" placeholder="Επώνυμο"></input>
                       <p class="validation-error">${sessionScope.lastnameMessage}</p>
                    </div>
               <div class="input-group container mb-3">
-                <label class="input-group-text col-3">ΑΦΜ</label>
+                <label class="input-group-text col-5">ΑΦΜ</label>
                   <input class="form-control" type="text" name="vat" value="${requestScope.insertDTO.vat}" placeholder="ΑΦΜ"></input>
                   <p class="validation-error">${sessionScope.vatMessage}</p>
               </div>
               <div class="input-group container mb-3">
-                  <label class="input-group-text col-3">Επώνυμο Πατρός</label>
+                  <label class="input-group-text col-5">Επώνυμο Πατρός</label>
                   <input class="form-control" type="text" name="fathername" value="${requestScope.insertDTO.fatherName}" placeholder="Επώνυμο Πατρός"></input>
                   <p class="validation-error">${sessionScope.fathernameMessage}</p>
               </div>
               <div class="input-group container mb-3">
-                <label class="input-group-text col-3">Αριθμός Τηλεφώνου</label>
+                <label class="input-group-text col-5">Αριθμός Τηλεφώνου</label>
                   <input class="form-control" type="text" name="phoneNum" value="${requestScope.insertDTO.phoneNum}" placeholder="Αριθμός Τηλεφώνου"></input>
                   <p class="validation-error">${sessionScope.phoneNumMessage}</p>
                 </div>
 
                 <div class="input-group container mb-3">
-                  <label class="input-group-text col-3">E-mail</label>
+                  <label class="input-group-text col-5">E-mail</label>
                   <input class="form-control" type="text" name="email" value="${requestScope.insertDTO.email}" placeholder="E-mail"></input>
                   <p class="validation-error">${sessionScope.emailMessage}</p>
                 </div>
               <div class="input-group container mb-3">
-                <label class="input-group-text col-3">Οδός</label>
+                <label class="input-group-text col-5">Οδός</label>
                   <input class="form-control" type="text" name="street" value="${requestScope.insertDTO.street}" placeholder="Οδός"></input>
                   <p class="validation-error">${sessionScope.streetMessage}</p>
                 </div>
 
                 <div class="input-group container mb-3">
-                  <label class="input-group-text col-3">Αριθμός</label>
+                  <label class="input-group-text col-5">Αριθμός</label>
                   <input class="form-control" type="text" name="streetNum" value="${requestScope.insertDTO.streetNum}" placeholder="Αριθμός"></input>
                   <p class="validation-error">${sessionScope.streetNumMessage}</p>
               </div>
               <div class="input-group container mb-3">
-                <label class="input-group-text col-3">ΤΚ</label>
+                <label class="input-group-text col-5">ΤΚ</label>
                   <input class="form-control" type="text" name="zipcode" value="${requestScope.insertDTO.zipCode}" placeholder="TK"></input>
                   <p class="validation-error">${sessionScope.zipcodeMessage}</p>
                 </div>
 
               <div class="input-group container mb-3">
-                              <label class="input-group-text col-3">Πόλη</label>
+                              <label class="input-group-text col-5">Πόλη</label>
 
                                   <select class= "form-select " name="cityId">
 

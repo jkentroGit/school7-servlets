@@ -23,6 +23,9 @@
 
 <div class="d-flex justify-content-center align-items-center" style="height: 70vh">
 <div class="card text-center w-50">
+<div class="card-header py-0 text-center pt-2">
+        <p>Προβολή καθηγητών</p>
+      </div>
   <div>
     <c:if test="${sessionScope.role == 'ADMIN'}">
        <div class="mt-5">
