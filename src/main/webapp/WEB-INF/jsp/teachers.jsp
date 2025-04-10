@@ -11,7 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Προβολή Καθηγητών</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/teachers.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
@@ -23,19 +23,19 @@
 
 <div class="d-flex justify-content-center align-items-center" style="height: 70vh">
 <div class="card text-center w-50">
-<div class="card-header py-0 text-center pt-2">
-        <p>Προβολή καθηγητών</p>
+<div class="card-header py-0 text-center pt-3 bg-info">
+        <p> Προβολή καθηγητών</p>
       </div>
   <div>
     <c:if test="${sessionScope.role == 'ADMIN'}">
        <div class="mt-5">
-           <a class="btn btn-primary" href= "${pageContext.request.contextPath}/school-app/teachers/insert" >Εισαγωγή Καθηγητή</a>
+           <a class="btn btn-primary" href= "${pageContext.request.contextPath}/school-app/teachers/insert" >Εισαγωγή καθηγητή</a>
        </div>
     </c:if>
 
   </div>
 
-<div class="input-group container w-50 mt-5">
+<div class="input-group container w-50 mt-5 mb-5">
  <form class="d-flex column" id="filterForm" method="GET" action="${pageContext.request.contextPath}/school-app/teachers/view">
       <input type="text" class="form-control column" name="firstname" placeholder="Όνομα" aria-label="Recipient's username" aria-describedby="basic-addon2">
       <input type="text" class="form-control" name="lastname" placeholder="Επώνυμο" aria-label="Recipient's username" aria-describedby="basic-addon2">
@@ -67,7 +67,7 @@
 
                    <c:if test="${sessionScope.role == 'ADMIN'}">
                    <a href="${pageContext.request.contextPath}/school-app/teachers/update?id=${teacher.id}"><i class="fa-solid fa-pen-to-square"></i></a>
-                   <a href="${pageContext.request.contextPath}/school-app/teachers/delete?id=${teacher.id}" onclick="return confirm('Are you sure you want to delete the teacher?')"><i class="fa-solid text-danger fa-trash-can p-1"></i></a>
+                   <a href="${pageContext.request.contextPath}/school-app/teachers/delete?id=${teacher.id}" onclick="return confirm('Είστε σίγουρος οτι θέλετε να διαγράψετε τον καθηγητή;')"><i class="fa-solid text-danger fa-trash-can p-1"></i></a>
                    </c:if>
                    </td>
                </tr>

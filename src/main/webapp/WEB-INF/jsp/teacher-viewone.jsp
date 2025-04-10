@@ -10,8 +10,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Teacher Update</title>
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/teacher-update.css">
+<title>Teacher View One</title>
+
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 </head>
@@ -20,7 +20,7 @@
 
 <div class="d-flex justify-content-center align-items-center" style="height: 70vh">
 <div class="container col-3 card p-0">
-<span class="card-header text-xl-center text-lg"> Εμφάνιση καθηγητή </span>
+<span class="card-header text-xl-center text-lg bg-info">Εμφάνιση καθηγητή</span>
 
   <div class="card-body p-0 col-0 text-center mt-5">
     <div class="mb-5">

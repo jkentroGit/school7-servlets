@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>Εισαγωγή Καθηγητή</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/teacher-insert.css">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 </head>
@@ -19,7 +19,7 @@
 
 <div class="d-flex justify-content-center align-items-center" style="height: 70vh">
 <div class="card" style="width: 500px">
-<span class="card-header text-xl-center text-lg"> Εισαγωγή καθηγητή </span>
+<span class="card-header text-xl-center text-lg bg-info">Εισαγωγή καθηγητή</span>
 
   <div class="card-body p-0 col-0 text-center mt-5">
     <div class=" mb-5 mx-auto">
