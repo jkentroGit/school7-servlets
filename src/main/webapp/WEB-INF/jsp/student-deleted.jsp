@@ -20,7 +20,7 @@
 </div>
 
 <div>
-    <a href="${pageContext.request.contextPath}/school-app/teachers/view">Επιστροφή</a>
+    <a href="${pageContext.request.contextPath}/school-app/students/view">Επιστροφή</a>
 </div>
 </body>
 </html>

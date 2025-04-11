@@ -5,7 +5,6 @@ import gr.aueb.cf.schoolapp.dao.TeacherDAOImpl;
 import gr.aueb.cf.schoolapp.dto.TeacherReadOnlyDTO;
 import gr.aueb.cf.schoolapp.exceptions.TeacherDAOException;
 import gr.aueb.cf.schoolapp.dto.FiltersDTO;
-import gr.aueb.cf.schoolapp.model.Teacher;
 import gr.aueb.cf.schoolapp.service.ITeacherService;
 import gr.aueb.cf.schoolapp.service.TeacherServiceImpl;
 import jakarta.servlet.ServletException;

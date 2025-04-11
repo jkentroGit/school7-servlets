@@ -1,13 +1,12 @@
 package gr.aueb.cf.schoolapp.controller;
 
-import gr.aueb.cf.schoolapp.dao.ITeacherDAO;
-import gr.aueb.cf.schoolapp.dao.TeacherDAOImpl;
-import gr.aueb.cf.schoolapp.dto.TeacherReadOnlyDTO;
-import gr.aueb.cf.schoolapp.exceptions.TeacherDAOException;
+import gr.aueb.cf.schoolapp.dao.IStudentDAO;
+import gr.aueb.cf.schoolapp.dao.StudentDAOImpl;
+import gr.aueb.cf.schoolapp.dto.StudentReadOnlyDTO;
+import gr.aueb.cf.schoolapp.exceptions.StudentDAOException;
 import gr.aueb.cf.schoolapp.dto.FiltersDTO;
-import gr.aueb.cf.schoolapp.model.Teacher;
-import gr.aueb.cf.schoolapp.service.ITeacherService;
-import gr.aueb.cf.schoolapp.service.TeacherServiceImpl;
+import gr.aueb.cf.schoolapp.service.IStudentService;
+import gr.aueb.cf.schoolapp.service.StudentServiceImpl;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -17,11 +16,11 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/school-app/teachers/view")
+@WebServlet("/school-app/students/view")
 public class StudentsViewController extends HttpServlet {
 
-    ITeacherDAO teacherDAO = new TeacherDAOImpl();
-    ITeacherService teacherService = new TeacherServiceImpl(teacherDAO);
+    IStudentDAO studentDAO = new StudentDAOImpl();
+    IStudentService studentService = new StudentServiceImpl(studentDAO);
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -32,7 +31,7 @@ public class StudentsViewController extends HttpServlet {
 //            return;
 //        }
 
-        List<TeacherReadOnlyDTO> teacherReadOnlyDTOS;
+        List<StudentReadOnlyDTO> studentReadOnlyDTOS;
         String filterFirstname = request.getParameter("firstname");
         filterFirstname = filterFirstname == null ? "" : filterFirstname;
 
@@ -44,20 +43,20 @@ public class StudentsViewController extends HttpServlet {
         String message = "";
 
         try {
-            teacherReadOnlyDTOS = teacherService.getFilteredTeachers(filters);
+            studentReadOnlyDTOS = studentService.getFilteredStudents(filters);
 
-            if (teacherReadOnlyDTOS.isEmpty()) {
-                request.setAttribute("message", "Teachers not found");
-                request.getRequestDispatcher("/WEB-INF/jsp/teachers.jsp").forward(request, response);
+            if (studentReadOnlyDTOS.isEmpty()) {
+                request.setAttribute("message", "Students not found");
+                request.getRequestDispatcher("/WEB-INF/jsp/students.jsp").forward(request, response);
                 return;
             }
 
-            request.setAttribute("teachers", teacherReadOnlyDTOS);
-            request.getRequestDispatcher("/WEB-INF/jsp/teachers.jsp").forward(request, response);
-        } catch (TeacherDAOException e) {
+            request.setAttribute("students", studentReadOnlyDTOS);
+            request.getRequestDispatcher("/WEB-INF/jsp/students.jsp").forward(request, response);
+        } catch (StudentDAOException e) {
             message = e.getMessage();
             request.setAttribute("message", message);
-            request.getRequestDispatcher("/WEB-INF/jsp/teachers.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/jsp/students.jsp").forward(request, response);
         }
     }
 }

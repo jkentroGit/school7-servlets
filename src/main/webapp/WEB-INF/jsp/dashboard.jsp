@@ -64,16 +64,16 @@
              <li><a class="dropdown-item" href="<c:url value='${pageContext.request.contextPath}/school-app/students/view'/>">Προβολή μαθητών</a></li>
 
              <c:if test="${sessionScope.role == 'ADMIN'}">
-             <li>
-             <a class="dropdown-item" href="<c:url value='${pageContext.request.contextPath}/school-app/students/insert'/>">Εισαγωγή μαθητών</a><i class="fa-solid fa-lock"></i>
-             </li>
-             </c:if>
+                           <li>
+                           <a class="dropdown-item" href="<c:url value='${pageContext.request.contextPath}/school-app/students/insert'/>">Εισαγωγή μαθητών</a>
+                           </li>
+                           </c:if>
 
-             <c:if test="${sessionScope.role != 'ADMIN'}">
-             <li>
-             <a class="dropdown-item disabled" href="">Εισαγωγή καθηγητών <i class="fa-solid fa-lock"></i> </a>
-             </li>
-              </c:if>
+                           <c:if test="${sessionScope.role != 'ADMIN'}">
+                           <li>
+                           <a class="dropdown-item text-sm disabled" href="">Εισαγωγή μαθητών <i class="fa-solid fa-lock"></i> </a>
+                           </li>
+                           </c:if>
 
 
 

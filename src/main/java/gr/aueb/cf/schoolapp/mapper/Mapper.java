@@ -13,19 +13,14 @@ public class Mapper {
     private Mapper() {}
 
     public static Teacher mapTeacherInsertToModel(TeacherInsertDTO dto) {
-//        return new Teacher(null, dto.getFirstname(), dto.getLastname(), dto.getVat(),
-//                        dto.getFatherName(), dto.getPhoneNum(), dto.getEmail(), dto.getStreet(), dto.getStreetNum(),
-//                        dto.getZipCode(), dto.getCityId(), UUID.randomUUID().toString(), LocalDateTime.now(),
-//                        LocalDateTime.now());
+
         return new Teacher(null, dto.getFirstname(), dto.getLastname(), dto.getVat(),
                 dto.getFatherName(), dto.getPhoneNum(), dto.getEmail(), dto.getStreet(), dto.getStreetNum(),
                 dto.getZipCode(), dto.getCityId(), null, null, null);
     }
 
     public static Teacher mapTeacherUpdateToModel(TeacherUpdateDTO dto) {
-//        return new Teacher(dto.getId(), dto.getFirstname(), dto.getLastname(), dto.getVat(),
-//                dto.getFatherName(), dto.getPhoneNum(), dto.getEmail(), dto.getStreet(), dto.getStreetNum(),
-//                dto.getZipCode(), dto.getCityId(), null, null, LocalDateTime.now());
+
         return new Teacher(dto.getId(), dto.getFirstname(), dto.getLastname(), dto.getVat(),
                 dto.getFatherName(), dto.getPhoneNum(), dto.getEmail(), dto.getStreet(), dto.getStreetNum(),
                 dto.getZipCode(), dto.getCityId(), null, null, null);
@@ -37,8 +32,6 @@ public class Mapper {
                 teacher.getLastname(), teacher.getVat(), teacher.getFatherName(), teacher.getPhoneNum(),
                 teacher.getEmail(), teacher.getStreet(), teacher.getStreetNum(), teacher.getZipCode(), teacher.getCityId()));
     }
-
-
 
 
 
@@ -62,7 +55,6 @@ public class Mapper {
                 student.getLastname(), student.getFatherName(), student.getPhoneNum(),
                 student.getEmail(), student.getStreet(), student.getStreetNum(), student.getZipCode(), student.getCityId()));
     }
-
 
 
 

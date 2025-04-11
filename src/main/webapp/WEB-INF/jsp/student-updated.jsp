@@ -20,13 +20,13 @@
 
 <div class="success m-bottom">
   <h1>Επιτυχής Ενημέρωση</h1>
-  <p>Κωδικός: ${sessionScope.teacherInfo.id}</p>
-  <p>Όνομα: ${sessionScope.teacherInfo.firstname}</p>
-  <p>Επώνυμο: ${sessionScope.teacherInfo.lastname}</p>
+  <p>Κωδικός: ${sessionScope.studentInfo.id}</p>
+  <p>Όνομα: ${sessionScope.studentInfo.firstname}</p>
+  <p>Επώνυμο: ${sessionScope.studentInfo.lastname}</p>
 </div>
 
 <div>
-  <a href="${pageContext.request.contextPath}/school-app/teachers/view">Επιστροφή</a>
+  <a href="${pageContext.request.contextPath}/school-app/students/view">Επιστροφή</a>
 </div>
 
 </body>

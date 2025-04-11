@@ -29,7 +29,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet("/school-app/teachers/viewone")
+@WebServlet("/school-app/students/viewone")
 public class StudentViewController extends HttpServlet {
 
     ITeacherDAO teacherDAO = new TeacherDAOImpl();

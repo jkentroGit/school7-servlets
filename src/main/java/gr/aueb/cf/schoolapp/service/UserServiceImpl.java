@@ -1,6 +1,5 @@
 package gr.aueb.cf.schoolapp.service;
 
-import gr.aueb.cf.schoolapp.core.RoleType;
 import gr.aueb.cf.schoolapp.dao.IUserDAO;
 import gr.aueb.cf.schoolapp.exceptions.UserDAOException;
 import gr.aueb.cf.schoolapp.dto.InsertUserDTO;

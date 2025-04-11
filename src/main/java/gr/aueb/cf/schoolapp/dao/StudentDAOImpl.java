@@ -16,7 +16,7 @@ public class StudentDAOImpl implements IStudentDAO {
     public Student insert(Student student) throws StudentDAOException {
         String sql = "INSERT INTO students (firstname, lastname, fathername, phone_num," +
                 " email, street, street_num, zipcode, city_id, uuid, created_at, updated_at)" +
-                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         Student insertedStudent = null;
 
         try (Connection connection = DBUtil.getConnection();
@@ -46,15 +46,15 @@ public class StudentDAOImpl implements IStudentDAO {
         } catch (SQLException e) {
             //e.printStackTrace();
             // logging
-            throw new StudentDAOException("SQL error in insert student with id: " +
-                    student.getId());
+            throw new StudentDAOException("SQL error in insert student with email: " +
+                    student.getEmail());
         }
     }
 
     @Override
     public Student update(Student student) throws StudentDAOException {
 
-        String sql = "UPDATE students SET firstname = ?, lastname = ?, vat = ?, fathername = ?, phone_num = ?," +
+        String sql = "UPDATE students SET firstname = ?, lastname = ?, fathername = ?, phone_num = ?," +
                 " email = ?, street = ?, street_num = ?, zipcode = ?, city_id = ?," +
                 " updated_at = ? WHERE id = ?";
         Student updatedStudent;
@@ -83,7 +83,7 @@ public class StudentDAOImpl implements IStudentDAO {
         } catch (SQLException e) {
             e.printStackTrace();
             // logging
-            throw new StudentDAOException("SQL error in update student with id: " + student.getId());
+            throw new StudentDAOException("SQL error in update student with email: " + student.getEmail());
         }
     }
 

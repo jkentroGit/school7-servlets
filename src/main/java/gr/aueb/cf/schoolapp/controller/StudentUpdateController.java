@@ -1,22 +1,14 @@
 package gr.aueb.cf.schoolapp.controller;
 
-import gr.aueb.cf.schoolapp.dao.CityDAOImpl;
-import gr.aueb.cf.schoolapp.dao.ICityDAO;
-import gr.aueb.cf.schoolapp.dao.ITeacherDAO;
-import gr.aueb.cf.schoolapp.dao.TeacherDAOImpl;
-import gr.aueb.cf.schoolapp.exceptions.TeacherAlreadyExistsException;
-import gr.aueb.cf.schoolapp.exceptions.TeacherDAOException;
-import gr.aueb.cf.schoolapp.dto.TeacherInsertDTO;
-import gr.aueb.cf.schoolapp.dto.TeacherReadOnlyDTO;
-import gr.aueb.cf.schoolapp.dto.TeacherUpdateDTO;
+import gr.aueb.cf.schoolapp.dao.*;
+import gr.aueb.cf.schoolapp.dto.*;
+import gr.aueb.cf.schoolapp.exceptions.StudentAlreadyExistsException;
+import gr.aueb.cf.schoolapp.exceptions.StudentDAOException;
+import gr.aueb.cf.schoolapp.exceptions.StudentNotFoundException;
 import gr.aueb.cf.schoolapp.model.City;
-import gr.aueb.cf.schoolapp.model.Teacher;
-import gr.aueb.cf.schoolapp.service.CityServiceImpl;
-import gr.aueb.cf.schoolapp.service.ICityService;
-import gr.aueb.cf.schoolapp.service.ITeacherService;
-import gr.aueb.cf.schoolapp.service.TeacherServiceImpl;
-import gr.aueb.cf.schoolapp.exceptions.TeacherNotFoundException;
-import gr.aueb.cf.schoolapp.validator.TeacherValidator;
+import gr.aueb.cf.schoolapp.model.Student;
+import gr.aueb.cf.schoolapp.service.*;
+import gr.aueb.cf.schoolapp.validator.StudentValidator;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -29,14 +21,14 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet("/school-app/teachers/update")
+@WebServlet("/school-app/students/update")
 public class StudentUpdateController extends HttpServlet {
 
-    ITeacherDAO teacherDAO = new TeacherDAOImpl();
-    ITeacherService teacherService = new TeacherServiceImpl(teacherDAO);
+    IStudentDAO studentDAO = new StudentDAOImpl();
+    IStudentService studentService = new StudentServiceImpl(studentDAO);
     ICityDAO cityDAO = new CityDAOImpl();
     ICityService cityService = new CityServiceImpl(cityDAO);
-    TeacherUpdateDTO updateDTO;
+    StudentUpdateDTO updateDTO;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -46,7 +38,7 @@ public class StudentUpdateController extends HttpServlet {
         Integer id = Integer.parseInt(req.getParameter("id").trim());
         try {
             cities = cityService.getAllCities();
-            TeacherReadOnlyDTO teacherReadOnlyDTO = teacherService.getTeacherById(id);
+            StudentReadOnlyDTO studentReadOnlyDTO = studentService.getStudentById(id);
             req.setAttribute("cities", cities);
             if (req.getSession().getAttribute("updateDTO") != null) {
                 // Move from session to request scope for JSP
@@ -56,13 +48,12 @@ public class StudentUpdateController extends HttpServlet {
                 // Clear session data (so it doesn't persist after refresh)
                 req.getSession().removeAttribute("updateDTO");
                 //req.getSession().removeAttribute("errors");
-            }
-            else req.setAttribute("updateDTO", teacherReadOnlyDTO);
-            req.getRequestDispatcher("/WEB-INF/jsp/teacher-update.jsp").forward(req, resp);
-        } catch (SQLException | TeacherDAOException | TeacherNotFoundException e) {
+            } else req.setAttribute("updateDTO", studentReadOnlyDTO);
+            req.getRequestDispatcher("/WEB-INF/jsp/student-update.jsp").forward(req, resp);
+        } catch (SQLException | StudentDAOException | StudentNotFoundException e) {
             String errorMessage = e.getMessage();
             req.setAttribute("errorMessage", errorMessage);
-            req.getRequestDispatcher("/WEB-INF/jsp/teacher-update.jsp")
+            req.getRequestDispatcher("/WEB-INF/jsp/student-update.jsp")
                     .forward(req, resp);
         }
     }
@@ -73,7 +64,6 @@ public class StudentUpdateController extends HttpServlet {
         Map<String, String> errors;
         String firstnameMessage;
         String lastnameMessage;
-        String vatMessage;
         String fathernameMessage;
         String phoneNumMessage;
         String emailMessage;
@@ -82,14 +72,13 @@ public class StudentUpdateController extends HttpServlet {
         String zipcodeMessage;
         String cityIdMessage;
         String errorMessage;
-        Teacher teacher;
+        Student teacher;
 
         // Data binding
         String idStr = (req.getParameter("id") != null) ? req.getParameter("id").trim() : "";
         Integer id = Integer.parseInt(idStr);
         String firstname = (req.getParameter("firstname") != null) ? req.getParameter("firstname").trim() : "";
         String lastname = (req.getParameter("lastname") != null) ? req.getParameter("lastname").trim() : "";
-        String vat = (req.getParameter("vat") != null) ? req.getParameter("vat").trim() : "";
         String fathername = (req.getParameter("fathername") != null) ? req.getParameter("fathername").trim() : "";
         String phoneNum = (req.getParameter("phoneNum") != null) ? req.getParameter("phoneNum").trim() : "";
         String email = (req.getParameter("email") != null) ? req.getParameter("email").trim() : "";
@@ -97,92 +86,48 @@ public class StudentUpdateController extends HttpServlet {
         String streetNum = (req.getParameter("streetNum") != null) ? req.getParameter("streetNum").trim() : "";
         String zipcode = (req.getParameter("zipcode") != null) ? req.getParameter("zipcode").trim() : "";
         Integer cityId = (req.getParameter("cityId") != null) ? Integer.parseInt(req.getParameter("cityId").trim()) : 0;
-        updateDTO = new TeacherUpdateDTO(id, firstname, lastname, vat, fathername, phoneNum,
+        updateDTO = new StudentUpdateDTO(id, firstname, lastname, fathername, phoneNum,
                 email, street, streetNum, zipcode, cityId);
 
 
         try {
             // Validate dto
-            errors = TeacherValidator.validate(updateDTO);
+            errors = StudentValidator.validate(updateDTO);
 
             if (!errors.isEmpty()) {
                 firstnameMessage = errors.getOrDefault("firstname", "");
                 lastnameMessage = errors.getOrDefault("lastname", "");
-                vatMessage = errors.getOrDefault("vat", "");
                 fathernameMessage = errors.getOrDefault("fathername", "");
                 phoneNumMessage = errors.getOrDefault("phoneNum", "");
                 // more ...
 
                 req.getSession().setAttribute("firstnameMessage", firstnameMessage);
                 req.getSession().setAttribute("lastnameMessage", lastnameMessage);
-                req.getSession().setAttribute("vatMessage", vatMessage);
                 req.getSession().setAttribute("fathernameMessage", fathernameMessage);
                 req.getSession().setAttribute("phoneNumMessage", phoneNumMessage);
                 req.getSession().setAttribute("updateDTO", updateDTO);
 //                req.getRequestDispatcher("/WEB-INF/jsp/teacher-update.jsp")
 //                        .forward(req, resp);
-                resp.sendRedirect(req.getContextPath() + "/school-app/teachers/update?id=" + id);
+                resp.sendRedirect(req.getContextPath() + "/school-app/students/update?id=" + id);
                 return;
             }
 
             // Call the service
 
-            TeacherReadOnlyDTO readOnlyDTO = teacherService.updateTeacher(id, updateDTO);
+            StudentReadOnlyDTO readOnlyDTO = studentService.updateStudent(id, updateDTO);
             HttpSession session = req.getSession(false);
-            session.setAttribute("teacherInfo", readOnlyDTO);
+            session.setAttribute("studentInfo", readOnlyDTO);
             // PRG Pattern
-            resp.sendRedirect(req.getContextPath() + "/school-app/teacher-updated");
+            resp.sendRedirect(req.getContextPath() + "/school-app/student-updated");
 //            req.getRequestDispatcher("/WEB-INF/jsp/teacher-inserted.jsp")
 //                    .forward(req, resp);
-        } catch (TeacherDAOException | TeacherAlreadyExistsException | TeacherNotFoundException e) {
+        } catch (StudentDAOException | StudentAlreadyExistsException | StudentNotFoundException e) {
             errorMessage = e.getMessage();
             req.setAttribute("errorMessage", errorMessage);
-            req.getRequestDispatcher("/WEB-INF/jsp/teacher-insert.jsp")
+            req.getRequestDispatcher("/WEB-INF/jsp/student-insert.jsp")
                     .forward(req, resp);
         }
 
-//        Integer id = Integer.parseInt(req.getParameter("id").trim());
-//        String firstname = req.getParameter("firstname").trim();
-//        String lastname = req.getParameter("lastname").trim();
-//
-//        TeacherUpdateDTO updateDTO = new TeacherUpdateDTO(id, firstname, lastname);
-//        Map<String, String> errors;
-//        String firstnameMessage;
-//        String lastnameMessage;
-//        String errorMessage;
-//        Teacher teacher;
-//
-//        try {
-//            // Validate dto
-//            errors = TeacherValidator.validate(updateDTO);
-//
-//            if (!errors.isEmpty()) {
-//                firstnameMessage = errors.getOrDefault("firstname", "");
-//                lastnameMessage = errors.getOrDefault("lastname", "");
-//
-//                req.setAttribute("firstnameMessage", firstnameMessage);
-//                req.setAttribute("lastnameMessage", lastnameMessage);
-//                req.setAttribute("updateDTO", updateDTO);
-//                req.getRequestDispatcher("/WEB-INF/jsp/teacher-update.jsp")
-//                        .forward(req, resp);
-//                return;
-//            }
-//
-//            // Call the service
-//            teacher = teacherService.updateTeacher(updateDTO);
-//            TeacherReadOnlyDTO readOnlyDTO = mapToReadOnlyDTO(teacher);
-//            req.setAttribute("teacherInfo", readOnlyDTO);
-//            req.getRequestDispatcher("/WEB-INF/jsp/teacher-updated.jsp")
-//                    .forward(req, resp);
-//        } catch (TeacherNotFoundException | TeacherDAOException e) {
-//            errorMessage = e.getMessage();
-//            req.setAttribute("errorMessage", errorMessage);
-//            req.getRequestDispatcher("/WEB-INF/jsp/teacher-update.jsp")
-//                    .forward(req, resp);
-//        }
-    }
 
-//    private TeacherReadOnlyDTO mapToReadOnlyDTO(Teacher teacher) {
-//        return new TeacherReadOnlyDTO(teacher.getId(), teacher.getFirstname(), teacher.getLastname());
-//    }
+    }
 }

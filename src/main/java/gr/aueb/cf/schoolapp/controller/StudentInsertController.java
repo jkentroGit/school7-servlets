@@ -2,25 +2,22 @@ package gr.aueb.cf.schoolapp.controller;
 
 import gr.aueb.cf.schoolapp.dao.*;
 import gr.aueb.cf.schoolapp.dto.StudentInsertDTO;
-
 import gr.aueb.cf.schoolapp.dto.StudentReadOnlyDTO;
 import gr.aueb.cf.schoolapp.exceptions.StudentAlreadyExistsException;
 import gr.aueb.cf.schoolapp.exceptions.StudentDAOException;
 import gr.aueb.cf.schoolapp.model.City;
-
 import gr.aueb.cf.schoolapp.model.Student;
 import gr.aueb.cf.schoolapp.service.CityServiceImpl;
 import gr.aueb.cf.schoolapp.service.ICityService;
-
 import gr.aueb.cf.schoolapp.service.IStudentService;
 import gr.aueb.cf.schoolapp.service.StudentServiceImpl;
+import gr.aueb.cf.schoolapp.validator.StudentValidator;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -60,7 +57,7 @@ public class StudentInsertController extends HttpServlet {
             req.getSession().removeAttribute("insertDTO");
             //req.getSession().removeAttribute("errors");
         }
-        req.getRequestDispatcher("/WEB-INF/jsp/teacher-insert.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/jsp/student-insert.jsp").forward(req, resp);
     }
 
     @Override
@@ -83,7 +80,6 @@ public class StudentInsertController extends HttpServlet {
         // Data binding
         String firstname = (req.getParameter("firstname") != null) ? req.getParameter("firstname").trim() : "";
         String lastname = (req.getParameter("lastname") != null) ? req.getParameter("lastname").trim() : "";
-
         String fathername = (req.getParameter("fathername") != null) ? req.getParameter("fathername").trim() : "";
         String phoneNum = (req.getParameter("phoneNum") != null) ? req.getParameter("phoneNum").trim() : "";
         String email = (req.getParameter("email") != null) ? req.getParameter("email").trim() : "";
@@ -91,7 +87,7 @@ public class StudentInsertController extends HttpServlet {
         String streetNum = (req.getParameter("streetNum") != null) ? req.getParameter("streetNum").trim() : "";
         String zipcode = (req.getParameter("zipcode") != null) ? req.getParameter("zipcode").trim() : "";
         Integer cityId = (req.getParameter("cityId") != null) ? Integer.parseInt(req.getParameter("cityId").trim()) : 0;
-        insertDTO = new StudentInsertDTO(firstname, lastname, vat, fathername, phoneNum,
+        insertDTO = new StudentInsertDTO(firstname, lastname, fathername, phoneNum,
                 email, street, streetNum, zipcode, cityId);
 
 

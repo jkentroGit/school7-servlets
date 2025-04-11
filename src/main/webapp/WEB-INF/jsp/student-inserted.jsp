@@ -17,8 +17,8 @@
 
 	<div class="success m-bottom">
 		<h1>Επιτυχής Εισαγωγή</h1>
-		<p>Επώνυμο: ${sessionScope.teacherInfo.lastname}</p>
-		<p>Όνομα: ${sessionScope.teacherInfo.firstname}</p>
+		<p>Επώνυμο: ${sessionScope.studentInfo.lastname}</p>
+		<p>Όνομα: ${sessionScope.studentInfo.firstname}</p>
 	</div>	
 	 	
 	<div>

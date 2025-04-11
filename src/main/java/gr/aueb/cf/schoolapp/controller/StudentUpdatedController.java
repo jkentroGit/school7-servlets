@@ -8,14 +8,14 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet("/school-app/teacher-updated")
+@WebServlet("/school-app/student-updated")
 public class StudentUpdatedController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        request.getRequestDispatcher("/WEB-INF/jsp/teacher-updated.jsp")
+        request.getRequestDispatcher("/WEB-INF/jsp/student-updated.jsp")
                 .forward(request, response);
     }
 }

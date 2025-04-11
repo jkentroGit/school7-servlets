@@ -2,6 +2,13 @@ C:\Users\jkentro\OneDrive\CF7-all-projects\IdeaProjects\school7-servlets-jsp-dev
 C:\Users\jkentro\OneDrive\CF7-all-projects\IdeaProjects\school7-servlets-jsp-dev\src\main\java\gr\aueb\cf\schoolapp\controller\DashboardController.java
 C:\Users\jkentro\OneDrive\CF7-all-projects\IdeaProjects\school7-servlets-jsp-dev\src\main\java\gr\aueb\cf\schoolapp\controller\LoginController.java
 C:\Users\jkentro\OneDrive\CF7-all-projects\IdeaProjects\school7-servlets-jsp-dev\src\main\java\gr\aueb\cf\schoolapp\controller\LogoutController.java
+C:\Users\jkentro\OneDrive\CF7-all-projects\IdeaProjects\school7-servlets-jsp-dev\src\main\java\gr\aueb\cf\schoolapp\controller\StudentDeleteController.java
+C:\Users\jkentro\OneDrive\CF7-all-projects\IdeaProjects\school7-servlets-jsp-dev\src\main\java\gr\aueb\cf\schoolapp\controller\StudentInsertController.java
+C:\Users\jkentro\OneDrive\CF7-all-projects\IdeaProjects\school7-servlets-jsp-dev\src\main\java\gr\aueb\cf\schoolapp\controller\StudentInsertedController.java
+C:\Users\jkentro\OneDrive\CF7-all-projects\IdeaProjects\school7-servlets-jsp-dev\src\main\java\gr\aueb\cf\schoolapp\controller\StudentsViewController.java
+C:\Users\jkentro\OneDrive\CF7-all-projects\IdeaProjects\school7-servlets-jsp-dev\src\main\java\gr\aueb\cf\schoolapp\controller\StudentUpdateController.java
+C:\Users\jkentro\OneDrive\CF7-all-projects\IdeaProjects\school7-servlets-jsp-dev\src\main\java\gr\aueb\cf\schoolapp\controller\StudentUpdatedController.java
+C:\Users\jkentro\OneDrive\CF7-all-projects\IdeaProjects\school7-servlets-jsp-dev\src\main\java\gr\aueb\cf\schoolapp\controller\StudentViewController.java
 C:\Users\jkentro\OneDrive\CF7-all-projects\IdeaProjects\school7-servlets-jsp-dev\src\main\java\gr\aueb\cf\schoolapp\controller\TeacherDeleteController.java
 C:\Users\jkentro\OneDrive\CF7-all-projects\IdeaProjects\school7-servlets-jsp-dev\src\main\java\gr\aueb\cf\schoolapp\controller\TeacherInsertController.java
 C:\Users\jkentro\OneDrive\CF7-all-projects\IdeaProjects\school7-servlets-jsp-dev\src\main\java\gr\aueb\cf\schoolapp\controller\TeacherInsertedController.java
@@ -59,5 +66,6 @@ C:\Users\jkentro\OneDrive\CF7-all-projects\IdeaProjects\school7-servlets-jsp-dev
 C:\Users\jkentro\OneDrive\CF7-all-projects\IdeaProjects\school7-servlets-jsp-dev\src\main\java\gr\aueb\cf\schoolapp\service\TeacherServiceImpl.java
 C:\Users\jkentro\OneDrive\CF7-all-projects\IdeaProjects\school7-servlets-jsp-dev\src\main\java\gr\aueb\cf\schoolapp\service\UserServiceImpl.java
 C:\Users\jkentro\OneDrive\CF7-all-projects\IdeaProjects\school7-servlets-jsp-dev\src\main\java\gr\aueb\cf\schoolapp\util\DBUtil.java
+C:\Users\jkentro\OneDrive\CF7-all-projects\IdeaProjects\school7-servlets-jsp-dev\src\main\java\gr\aueb\cf\schoolapp\validator\StudentValidator.java
 C:\Users\jkentro\OneDrive\CF7-all-projects\IdeaProjects\school7-servlets-jsp-dev\src\main\java\gr\aueb\cf\schoolapp\validator\TeacherValidator.java
 C:\Users\jkentro\OneDrive\CF7-all-projects\IdeaProjects\school7-servlets-jsp-dev\src\main\java\gr\aueb\cf\schoolapp\validator\UserValidator.java
