@@ -29,7 +29,7 @@
   <div>
     <c:if test="${sessionScope.role == 'ADMIN'}">
        <div class="mt-5">
-           <a class="btn btn-primary" href= "${pageContext.request.contextPath}/school-app/students/insert" >Εισαγωγή μαθητή</a>
+           <a class="btn btn-primary" href= "${pageContext.request.contextPath}/school-app/students/insert">Εισαγωγή μαθητή</a>
        </div>
     </c:if>
 
@@ -67,7 +67,7 @@
 
                    <c:if test="${sessionScope.role == 'ADMIN'}">
                    <a href="${pageContext.request.contextPath}/school-app/students/update?id=${student.id}"><i class="fa-solid fa-pen-to-square"></i></a>
-                   <a href="${pageContext.request.contextPath}/school-app/students/delete?id=${student.id}" onclick="return confirm('Είστε σίγουρος οτι θέλετε να διαγράψετε τον καθηγητή;')"><i class="fa-solid text-danger fa-trash-can p-1"></i></a>
+                   <a href="${pageContext.request.contextPath}/school-app/students/delete?id=${student.id}" onclick="return confirm('Είστε σίγουρος οτι θέλετε να διαγράψετε τον μαθητή;')"><i class="fa-solid text-danger fa-trash-can p-1"></i></a>
                    </c:if>
                    </td>
                </tr>

@@ -20,7 +20,7 @@
 
 <div class="d-flex justify-content-center align-items-center" style="height: 70vh">
 <div class="container col-3 card p-0">
-<span class="card-header text-xl-center text-lg bg-warning">Εμφάνιση καθηγητή</span>
+<span class="card-header text-xl-center text-lg bg-warning">Εμφάνιση μαθητή</span>
 
   <div class="card-body p-0 col-0 text-center mt-5">
     <div class="mb-5">

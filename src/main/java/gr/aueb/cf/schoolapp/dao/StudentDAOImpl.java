@@ -24,16 +24,16 @@ public class StudentDAOImpl implements IStudentDAO {
                      Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, student.getFirstname());
             ps.setString(2, student.getLastname());
-            ps.setString(4, student.getFatherName());
-            ps.setString(5, student.getPhoneNum());
-            ps.setString(6, student.getEmail());
-            ps.setString(7, student.getStreet());
-            ps.setString(8, student.getStreetNum());
-            ps.setString(9, student.getZipCode());
-            ps.setInt(10, student.getCityId());
-            ps.setString(11, UUID.randomUUID().toString());
+            ps.setString(3, student.getFatherName());
+            ps.setString(4, student.getPhoneNum());
+            ps.setString(5, student.getEmail());
+            ps.setString(6, student.getStreet());
+            ps.setString(7, student.getStreetNum());
+            ps.setString(8, student.getZipCode());
+            ps.setInt(9, student.getCityId());
+            ps.setString(10, UUID.randomUUID().toString());
+            ps.setTimestamp(11, Timestamp.valueOf(LocalDateTime.now()));
             ps.setTimestamp(12, Timestamp.valueOf(LocalDateTime.now()));
-            ps.setTimestamp(13, Timestamp.valueOf(LocalDateTime.now()));
             ps.executeUpdate();
 
             ResultSet rsGeneratedKeys = ps.getGeneratedKeys();
@@ -64,16 +64,16 @@ public class StudentDAOImpl implements IStudentDAO {
 
             ps.setString(1, student.getFirstname());
             ps.setString(2, student.getLastname());
-            ps.setString(4, student.getFatherName());
-            ps.setString(5, student.getPhoneNum());
-            ps.setString(6, student.getEmail());
-            ps.setString(7, student.getStreet());
-            ps.setString(8, student.getStreetNum());
-            ps.setString(9, student.getZipCode());
-            ps.setInt(10, student.getCityId());
+            ps.setString(3, student.getFatherName());
+            ps.setString(4, student.getPhoneNum());
+            ps.setString(5, student.getEmail());
+            ps.setString(6, student.getStreet());
+            ps.setString(7, student.getStreetNum());
+            ps.setString(8, student.getZipCode());
+            ps.setInt(9, student.getCityId());
 //            ps.setTimestamp(11, Timestamp.valueOf(teacher.getUpdatedAt()));
-            ps.setTimestamp(11, Timestamp.valueOf(LocalDateTime.now()));
-            ps.setInt(12, student.getId());
+            ps.setTimestamp(10, Timestamp.valueOf(LocalDateTime.now()));
+            ps.setInt(11, student.getId());
 
             ps.executeUpdate();
 

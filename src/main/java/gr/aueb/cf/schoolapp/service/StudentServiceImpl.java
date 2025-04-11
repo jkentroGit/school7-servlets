@@ -32,7 +32,7 @@ public class StudentServiceImpl implements IStudentService {
         try {
             student = Mapper.mapStudentInsertToModel(dto);
             if (studentDAO.getStudentByEmail(dto.getEmail()) != null)
-                throw new StudentAlreadyExistsException("Student with vat" + dto.getEmail() + " exists");
+                throw new StudentAlreadyExistsException("Student with email " + dto.getEmail() + " exists");
             insertedStudent = studentDAO.insert(student);
             // logging
             return Mapper.mapStudentToReadOnlyDTO(insertedStudent).orElse(null);
@@ -52,22 +52,22 @@ public class StudentServiceImpl implements IStudentService {
     @Override
     public StudentReadOnlyDTO updateStudent(Integer id, StudentUpdateDTO dto)
             throws StudentNotFoundException, StudentAlreadyExistsException, StudentDAOException {
-        Student teacher;
+        Student student;
         Student fetchedStudent;
 
         try {
             if (studentDAO.getById(id) == null)
-                throw new StudentNotFoundException("Student with id " + id + " was not found");
+                throw new StudentNotFoundException("Student with id :" + id + " was not found");
 
 
             fetchedStudent = studentDAO.getStudentByEmail(dto.getEmail());
             if (fetchedStudent != null && !fetchedStudent.getId().equals(dto.getId())) {
                 throw new StudentAlreadyExistsException("Student with id: " + dto.getId() + " already exists");
             }
-            teacher = Mapper.mapStudentUpdateToModel(dto);
-            Student updatedTeacher =  studentDAO.update(teacher);
+            student = Mapper.mapStudentUpdateToModel(dto);
+            Student updatedStudent =  studentDAO.update(student);
             // logging
-            return Mapper.mapStudentToReadOnlyDTO(updatedTeacher).orElse(null);
+            return Mapper.mapStudentToReadOnlyDTO(updatedStudent).orElse(null);
         } catch (StudentDAOException | StudentNotFoundException e) {
             //e.printStackTrace();
             // logging
